@@ -1,6 +1,13 @@
 import Link from "next/link";
 
-const pages = [
+type Page = {
+  slug: string;
+  name: string;
+  craft: string;
+  palette: string[];
+};
+
+const craftPages: Page[] = [
   {
     slug: "helios",
     name: "Helios",
@@ -63,27 +70,98 @@ const pages = [
   },
 ];
 
-export default function Home() {
+const globoPages: Page[] = [
+  {
+    slug: "globo/heranca",
+    name: "Herança",
+    craft: "A capa centenária — autoridade por arquivo",
+    palette: ["#f8f5ee", "#14181d", "#0a5cb8"],
+  },
+  {
+    slug: "globo/agora",
+    name: "Agora",
+    craft: "Redação ao vivo — urgência com countdown real",
+    palette: ["#0b0e12", "#e03131", "#4d9fff"],
+  },
+  {
+    slug: "globo/familia",
+    name: "Família",
+    craft: "4 perfis, 1 preço — comparativo e FAQ",
+    palette: ["#eef5fd", "#0a5cb8", "#ffd8a8"],
+  },
+  {
+    slug: "globo/rio",
+    name: "Rio",
+    craft: "Amanhecer carioca — pertencimento e CEP",
+    palette: ["#1d3557", "#e07a2f", "#ffd8a8"],
+  },
+  {
+    slug: "globo/anual",
+    name: "Anual",
+    craft: "40% off — uma página, um número, uma decisão",
+    palette: ["#0b0b0c", "#ffd43b", "#4d9fff"],
+  },
+];
+
+const valorPages: Page[] = [
+  {
+    slug: "valor/pro",
+    name: "Pro",
+    craft: "Quem decide lê antes — gráfico que desenha",
+    palette: ["#0e2b4c", "#e8590c", "#f9e7dc"],
+  },
+  {
+    slug: "valor/dados",
+    name: "Dados",
+    craft: "Painel de indicadores — a demo é o hero",
+    palette: ["#081a2e", "#37b24d", "#e8590c"],
+  },
+  {
+    slug: "valor/manha",
+    name: "Manhã",
+    craft: "Rotina 5h50–9h00 — timeline que amanhece",
+    palette: ["#14273f", "#8c5a3b", "#fdf6ef"],
+  },
+  {
+    slug: "valor/roi",
+    name: "ROI",
+    craft: "Calculadora do cafezinho — preço reancorado",
+    palette: ["#f4f1ec", "#0e2b4c", "#e8590c"],
+  },
+  {
+    slug: "valor/salmon",
+    name: "Salmon",
+    craft: "Ode ao papel — jornal que desdobra em CSS 3D",
+    palette: ["#f6dccb", "#0e2b4c", "#b8552a"],
+  },
+];
+
+function Section({
+  title,
+  subtitle,
+  pages,
+  offset,
+}: {
+  title: string;
+  subtitle: string;
+  pages: Page[];
+  offset: number;
+}) {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-20 font-mono">
-      <header className="mb-14">
-        <h1 className="text-2xl font-bold tracking-tight">LPS</h1>
-        <p className="mt-3 max-w-lg text-sm leading-relaxed text-neutral-400">
-          Ten landing pages, ten different crafts. No shared template, no
-          shared palette, no shared motion language. Each page has a{" "}
-          <code className="text-neutral-300">/guide</code> explaining how it
-          was built.
-        </p>
-      </header>
+    <section className="mb-14">
+      <div className="mb-4 flex items-baseline justify-between">
+        <h2 className="text-sm font-bold tracking-widest uppercase">{title}</h2>
+        <span className="text-xs text-neutral-600">{subtitle}</span>
+      </div>
       <ol className="divide-y divide-neutral-800/80 border-y border-neutral-800/80">
         {pages.map((p, i) => (
           <li key={p.slug} className="group relative">
             <Link
               href={`/${p.slug}`}
-              className="flex items-baseline gap-4 py-5 transition-colors hover:bg-neutral-900/60 sm:gap-6 sm:px-3"
+              className="flex items-baseline gap-4 py-4 transition-colors hover:bg-neutral-900/60 sm:gap-6 sm:px-3"
             >
               <span className="w-6 shrink-0 text-xs text-neutral-600">
-                {String(i + 1).padStart(2, "0")}
+                {String(offset + i + 1).padStart(2, "0")}
               </span>
               <span className="w-24 shrink-0 text-base font-bold sm:w-28">
                 {p.name}
@@ -110,9 +188,51 @@ export default function Home() {
           </li>
         ))}
       </ol>
-      <footer className="mt-14 text-xs text-neutral-600">
-        Built with Next.js, GSAP, Three.js, Tailwind. Everything procedural —
-        no image assets, no AI-generated media.
+    </section>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="mx-auto max-w-3xl px-6 py-20 font-mono">
+      <header className="mb-14">
+        <h1 className="text-2xl font-bold tracking-tight">LPS</h1>
+        <p className="mt-3 max-w-lg text-sm leading-relaxed text-neutral-400">
+          Twenty landing pages. Ten push a craft as far as it goes; ten sell
+          newspaper subscriptions with conversion-first design. Every page has
+          a <code className="text-neutral-300">/guide</code> explaining how it
+          was built.
+        </p>
+      </header>
+
+      <Section
+        title="Craft series"
+        subtitle="10 páginas · 10 técnicas"
+        pages={craftPages}
+        offset={0}
+      />
+      <Section
+        title="O GLOBO — assinaturas"
+        subtitle="5 ângulos de conversão · conceito"
+        pages={globoPages}
+        offset={10}
+      />
+      <Section
+        title="Valor Econômico — assinaturas"
+        subtitle="5 ângulos de conversão · conceito"
+        pages={valorPages}
+        offset={15}
+      />
+
+      <footer className="mt-4 space-y-2 text-xs text-neutral-600">
+        <p>
+          Built with Next.js, GSAP, Three.js, Tailwind. Everything procedural —
+          no image assets, no AI-generated media.
+        </p>
+        <p>
+          As páginas de O GLOBO e Valor Econômico são conceitos de portfólio,
+          sem vínculo oficial com as marcas. Preços ilustrativos.
+        </p>
       </footer>
     </main>
   );

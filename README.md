@@ -1,10 +1,13 @@
-# LPS — ten landing pages
+# LPS — twenty landing pages
 
-Ten portfolio-grade landing pages in one Next.js app. Each page is a different fictional brand, built to push a different craft as hard as possible — and **no two pages share a template, palette, typeface, or motion language**.
+Twenty landing pages in one Next.js app, in two series:
 
-Everything is authored in code: no image assets, no AI-generated media. Photography placeholders come from [picsum.photos](https://picsum.photos); everything else is procedural (GLSL, canvas, SVG, CSS).
+- **Craft series (10)** — each page is a fictional brand pushing a different craft as hard as possible. No two pages share a template, palette, typeface, or motion language.
+- **Conversion series (10)** — subscription landing pages (digital + print) for two Brazilian newspapers: 5 for **O GLOBO** and 5 for **Valor Econômico**. Each brand keeps a consistent identity (type + color) while every page attacks conversion from a different angle. Concept/portfolio work — no official affiliation, illustrative prices.
 
-## The ten
+Everything is authored in code: no image assets, no AI-generated media. Photography placeholders come from [picsum.photos](https://picsum.photos); everything else is procedural (GLSL, canvas, SVG, CSS). The index at `/` is the menu for all twenty.
+
+## Craft series
 
 | # | Route | Brand | Craft it pushes | Signature technique |
 |---|-------|-------|-----------------|---------------------|
@@ -19,7 +22,27 @@ Everything is authored in code: no image assets, no AI-generated media. Photogra
 | 09 | [/orbital](app/orbital/page.tsx) | ORBITAL OS-1 — glass object | Physical 3D | MeshPhysicalMaterial glass (transmission, IOR 1.52, iridescence) with a scroll-scrubbed camera rig doing a product shoot |
 | 10 | [/field](app/field/page.tsx) | FIELD — generative studio | Procedural canvas art | Seeded flow fields: mulberry32 + fbm advection, 900 particles of accumulating ink — every artwork reproducible from its number |
 
-Every page has a **build guide** at `/<slug>/guide` (e.g. [/helios/guide](app/helios/guide/page.tsx)) explaining the techniques, decisions, and code behind it.
+## Conversion series — O GLOBO
+
+| # | Route | Angle | Signature move |
+|---|-------|-------|----------------|
+| 11 | [/globo/heranca](app/globo/heranca/page.tsx) | Authority by archive | The landing as a front page: masthead, rules, justified columns, historic-headline ticker, sticky CTA bar |
+| 12 | [/globo/agora](app/globo/agora/page.tsx) | Honest urgency | Live newsroom: breaking ticker, real clock, stories-today counter, countdown that actually expires at midnight |
+| 13 | [/globo/familia](app/globo/familia/page.tsx) | Value reframing | 4 profiles / 1 price, comparison table with anchored middle column, native `<details>` FAQ |
+| 14 | [/globo/rio](app/globo/rio/page.tsx) | Local belonging | Dawn gradient + hand-drawn SVG skyline (Dois Irmãos → Corcovado → Pão de Açúcar), neighborhood delivery cloud |
+| 15 | [/globo/anual](app/globo/anual/page.tsx) | Single offer | A 17rem "40%" as the hero, savings counter translated into coffee, 2-column monthly vs annual |
+
+## Conversion series — Valor Econômico
+
+| # | Route | Angle | Signature move |
+|---|-------|-------|----------------|
+| 16 | [/valor/pro](app/valor/pro/page.tsx) | Professional FOMO | "Quem decide lê antes" + SVG line chart drawing itself behind the headline |
+| 17 | [/valor/dados](app/valor/dados/page.tsx) | Product-led demo | The hero is a working indicator panel: animated numbers, SVG sparklines, market up/down colors |
+| 18 | [/valor/manha](app/valor/manha/page.tsx) | Ritual selling | A 5h50→9h00 timeline that draws with scroll; the page background dawns from navy to paper |
+| 19 | [/valor/roi](app/valor/roi/page.tsx) | Interactive reanchoring | A coffee-price slider computes the subscription in cafés — the visitor does the math themselves |
+| 20 | [/valor/salmon](app/valor/salmon/page.tsx) | Physical differentiation | Salmon paper texture (inline feTurbulence) and a newspaper that unfolds in CSS 3D |
+
+Every page has a **build guide** at `/<slug>/guide` (e.g. [/helios/guide](app/helios/guide/page.tsx), [/globo/heranca/guide](app/globo/heranca/guide/page.tsx)) explaining the techniques, decisions, and conversion patterns behind it.
 
 ## Stack
 
@@ -51,14 +74,24 @@ Open [http://localhost:3000](http://localhost:3000) for the index of all ten.
 
 ```
 app/
-  page.tsx            ← index listing the ten pages
-  <slug>/
-    layout.tsx        ← fonts (next/font) + metadata for that brand
-    page.tsx          ← the landing page (client component)
-    guide/page.tsx    ← write-up of how it was built
-components/Guide.tsx  ← shared shell for the guide pages only
+  page.tsx              ← index/menu listing all twenty pages
+  <slug>/               ← craft series
+    layout.tsx          ← fonts (next/font) + metadata for that brand
+    page.tsx            ← the landing page (client component)
+    guide/page.tsx      ← write-up of how it was built
+  globo/                ← conversion series, O GLOBO
+    layout.tsx          ← brand fonts (Merriweather + Libre Franklin)
+    <variant>/{layout,page,guide/page}.tsx
+  valor/                ← conversion series, Valor Econômico
+    layout.tsx          ← brand fonts (IBM Plex Serif + Sans)
+    <variant>/{layout,page,guide/page}.tsx
+components/Guide.tsx    ← shared shell for the guide pages only
 ```
+
+## Deploy
+
+All 44 routes are statically prerendered — the repo deploys to Vercel as-is (`vercel` or import the repo in the dashboard; no env vars needed). The `/` index works as the navigation menu.
 
 ---
 
-All brands are fictional. Built as a portfolio piece exploring how far web craft can go with zero assets.
+Craft-series brands are fictional. The O GLOBO and Valor Econômico pages are unaffiliated portfolio concepts with illustrative prices. Built as a portfolio piece exploring how far web craft can go with zero assets.
