@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { MenuButton } from "@/components/MenuButton";
 
 const sans = Geist({ variable: "--font-root-sans", subsets: ["latin"] });
 const mono = Geist_Mono({ variable: "--font-root-mono", subsets: ["latin"] });
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${sans.variable} ${mono.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        {children}
+        <MenuButton />
+      </body>
     </html>
   );
 }
