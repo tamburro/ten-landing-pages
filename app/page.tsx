@@ -101,6 +101,36 @@ const globoPages: Page[] = [
     craft: "40% off — uma página, um número, uma decisão",
     palette: ["#0b0b0c", "#ffd43b", "#4d9fff"],
   },
+  {
+    slug: "globo/colunistas",
+    name: "Colunistas",
+    craft: "Assine pessoas — citações que se revezam",
+    palette: ["#ffffff", "#0a5cb8", "#14181d"],
+  },
+  {
+    slug: "globo/estudante",
+    name: "Estudante",
+    craft: "Caderno pautado — 50% off que cai na prova",
+    palette: ["#fbfcfe", "#ffe066", "#0a5cb8"],
+  },
+  {
+    slug: "globo/fimdesemana",
+    name: "Fim de semana",
+    craft: "O domingo pede papel — cadernos na mesa",
+    palette: ["#f7f1e5", "#a61e4d", "#14181d"],
+  },
+  {
+    slug: "globo/verdade",
+    name: "Verdade",
+    craft: "Boato riscado, fato carimbado — assinar é financiar",
+    palette: ["#ffffff", "#e03131", "#0a5cb8"],
+  },
+  {
+    slug: "globo/presente",
+    name: "Presente",
+    craft: "Configurador de presente — cartão ao vivo",
+    palette: ["#eef2f9", "#0a5cb8", "#ffffff"],
+  },
 ];
 
 const valorPages: Page[] = [
@@ -133,6 +163,36 @@ const valorPages: Page[] = [
     name: "Salmon",
     craft: "Ode ao papel — jornal que desdobra em CSS 3D",
     palette: ["#f6dccb", "#0e2b4c", "#b8552a"],
+  },
+  {
+    slug: "valor/equipes",
+    name: "Equipes",
+    craft: "B2B — calculadora de assentos com cotação viva",
+    palette: ["#0e2b4c", "#e8590c", "#37b24d"],
+  },
+  {
+    slug: "valor/analise",
+    name: "Análise",
+    craft: "O paywall como demo — corta no melhor parágrafo",
+    palette: ["#fbf6f0", "#0e2b4c", "#b8552a"],
+  },
+  {
+    slug: "valor/carreira",
+    name: "Carreira",
+    craft: "Escada tipográfica — do estágio ao conselho",
+    palette: ["#f4f1ec", "#0e2b4c", "#e8590c"],
+  },
+  {
+    slug: "valor/agro",
+    name: "Agro",
+    craft: "Do talhão ao pregão — board de commodities",
+    palette: ["#0f2417", "#69db7c", "#e8590c"],
+  },
+  {
+    slug: "valor/global",
+    name: "Global",
+    craft: "Quatro fusos com hora real e status de pregão",
+    palette: ["#0b1f38", "#d4a418", "#69db7c"],
   },
 ];
 
@@ -198,7 +258,7 @@ export default function Home() {
       <header className="mb-14">
         <h1 className="text-2xl font-bold tracking-tight">LPS</h1>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-neutral-400">
-          Twenty landing pages. Ten push a craft as far as it goes; ten sell
+          Thirty landing pages. Ten push a craft as far as it goes; twenty sell
           newspaper subscriptions with conversion-first design. Every page has
           a <code className="text-neutral-300">/guide</code> explaining how it
           was built.
@@ -213,15 +273,15 @@ export default function Home() {
       />
       <Section
         title="O GLOBO — assinaturas"
-        subtitle="5 ângulos de conversão · conceito"
+        subtitle="10 ângulos de conversão · conceito"
         pages={globoPages}
         offset={10}
       />
       <Section
         title="Valor Econômico — assinaturas"
-        subtitle="5 ângulos de conversão · conceito"
+        subtitle="10 ângulos de conversão · conceito"
         pages={valorPages}
-        offset={15}
+        offset={20}
       />
 
       <footer className="mt-4 space-y-2 text-xs text-neutral-600">
