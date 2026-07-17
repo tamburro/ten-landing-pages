@@ -8,7 +8,7 @@ const mono = Geist_Mono({ variable: "--font-root-mono", subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: {
-    default: "LPS — thirty landing pages",
+    default: "LPS — forty landing pages",
     template: "%s — LPS",
   },
   description:

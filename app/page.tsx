@@ -131,6 +131,36 @@ const globoPages: Page[] = [
     craft: "Configurador de presente — cartão ao vivo",
     palette: ["#eef2f9", "#0a5cb8", "#ffffff"],
   },
+  {
+    slug: "globo/app",
+    name: "App",
+    craft: "iPhone em CSS com o app vivo — push e modo noturno",
+    palette: ["#f2f6fb", "#0a5cb8", "#14181d"],
+  },
+  {
+    slug: "globo/amanha",
+    name: "Amanhã",
+    craft: "A capa de amanhã, embaçada atrás do cadeado",
+    palette: ["#101418", "#ffd43b", "#fbf9f4"],
+  },
+  {
+    slug: "globo/jogos",
+    name: "Jogos",
+    craft: "Palavra do dia jogável — CTA no fim da partida",
+    palette: ["#fffdf6", "#ffd43b", "#2f9e44"],
+  },
+  {
+    slug: "globo/arquivo",
+    name: "Arquivo",
+    craft: "Máquina do tempo 1925–2026 — o papel envelhece",
+    palette: ["#2b2620", "#ffd43b", "#f3ede1"],
+  },
+  {
+    slug: "globo/quiz",
+    name: "Quiz",
+    craft: "Você sabe o que aconteceu ontem? — CTA por nota",
+    palette: ["#0a5cb8", "#ffffff", "#ffd43b"],
+  },
 ];
 
 const valorPages: Page[] = [
@@ -193,6 +223,36 @@ const valorPages: Page[] = [
     name: "Global",
     craft: "Quatro fusos com hora real e status de pregão",
     palette: ["#0b1f38", "#d4a418", "#69db7c"],
+  },
+  {
+    slug: "valor/terminal",
+    name: "Terminal",
+    craft: "Laptop CSS com watchlist clicável e feed vivo",
+    palette: ["#0a1626", "#e8590c", "#37b24d"],
+  },
+  {
+    slug: "valor/simulador",
+    name: "Simulador",
+    craft: "Você é o CFO — 3 decisões, placar em reais",
+    palette: ["#0e2b4c", "#f9e7dc", "#2f9e44"],
+  },
+  {
+    slug: "valor/newsletters",
+    name: "Newsletters",
+    craft: "Monte sua manhã — o inbox se monta ao vivo",
+    palette: ["#f4f1ec", "#0e2b4c", "#e8590c"],
+  },
+  {
+    slug: "valor/sinal",
+    name: "Sinal",
+    craft: "Ruído vs sinal — um interruptor muda a página",
+    palette: ["#0b0d10", "#f9f6f1", "#e8590c"],
+  },
+  {
+    slug: "valor/mesa",
+    name: "Mesa",
+    craft: "Flat-lay das 7h em CSS — hotspots do ecossistema",
+    palette: ["#55381f", "#f6dccb", "#e8590c"],
   },
 ];
 
@@ -258,7 +318,7 @@ export default function Home() {
       <header className="mb-14">
         <h1 className="text-2xl font-bold tracking-tight">LPS</h1>
         <p className="mt-3 max-w-lg text-sm leading-relaxed text-neutral-400">
-          Thirty landing pages. Ten push a craft as far as it goes; twenty sell
+          Forty landing pages. Ten push a craft as far as it goes; thirty sell
           newspaper subscriptions with conversion-first design. Every page has
           a <code className="text-neutral-300">/guide</code> explaining how it
           was built.
@@ -273,15 +333,15 @@ export default function Home() {
       />
       <Section
         title="O GLOBO — assinaturas"
-        subtitle="10 ângulos de conversão · conceito"
+        subtitle="15 ângulos de conversão · conceito"
         pages={globoPages}
         offset={10}
       />
       <Section
         title="Valor Econômico — assinaturas"
-        subtitle="10 ângulos de conversão · conceito"
+        subtitle="15 ângulos de conversão · conceito"
         pages={valorPages}
-        offset={20}
+        offset={25}
       />
 
       <footer className="mt-4 space-y-2 text-xs text-neutral-600">
